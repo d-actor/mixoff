@@ -29,4 +29,15 @@ class App extends Component {
   }
 }
 
+const styles = {
+  background: {
+    backgroundColor: 'black',
+  },
+  wrapper: {
+    minHeight: '100vh',
+    marginBottom: '-150px',
+    paddingBottom: '150px',
+  }
+}
+
 export default App;

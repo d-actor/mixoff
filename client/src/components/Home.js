@@ -4,8 +4,14 @@ import { Header } from 'semantic-ui-react';
 class Home extends Component {
   render() {
     return (
-      <Header as='h1' textAlign='center'>Spotify Mixoff</Header>
+      <Header as='h1' style={styles.main} textAlign='center'>Spotify Mixoff</Header>
     );
+  }
+}
+
+const styles = {
+  main: {
+    color: '#FFF',
   }
 }
 
