@@ -1,0 +1,2 @@
+class Mixoff < ApplicationRecord
+end
