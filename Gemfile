@@ -11,6 +11,7 @@ gem 'puma', '~> 3.7'
 gem 'omniauth'
 gem 'devise'
 gem 'devise_token_auth'
+gem 'rspotify'
 
 group :development, :test do
   gem 'pry', platforms: [:mri, :mingw, :x64_mingw]
