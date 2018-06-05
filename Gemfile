@@ -7,6 +7,7 @@ gem 'omniauth'
 gem 'devise'
 gem 'devise_token_auth'
 gem 'rspotify'
+gem 'dotenv-rails'
 
 group :development, :test do
   gem 'pry', platforms: [:mri, :mingw, :x64_mingw]

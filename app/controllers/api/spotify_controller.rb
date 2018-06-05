@@ -8,10 +8,10 @@ class Api::SpotifyController < ApplicationController
 
   private
     def spotify_auth
-      RSpotify.authenticate("#{<ENV['SPOTIFY_CLIENT_ID']>}", "#{<ENV["SPOTIFY_CLIENT_SECRET"]>}")
+      RSpotify.authenticate(ENV['SPOTIFY_CLIENT_ID'], ENV['SPOTIFY_CLIENT_SECRET'])
     end
 
     def set_user
-      @user = RSpotify.user.find('danltactor')
+      @user = RSpotify::User.find('danltactor')
     end
 end
