@@ -8,6 +8,7 @@ import Home from './Home';
 import ProtectedRoute from './ProtectedRoute';
 import AuthRoute from './AuthRoute';
 import FetchUser from './FetchUser';
+import Footer from './Footer';
 import { Switch, Route } from 'react-router-dom';
 import { Segment } from 'semantic-ui-react';
 
@@ -27,6 +28,7 @@ class App extends Component {
             </Switch>
           </FetchUser>
         </div>
+        <Footer />
       </Segment>
     );
   }

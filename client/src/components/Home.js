@@ -20,14 +20,15 @@ class Home extends Component {
 
   render() {
     return (
-      <Segment>
+      <Segment inverted>
         <Container>
-          <Header as='h1' style={styles.main} textAlign='center'>Spotify Mixoff</Header>
-          <Header as='h2' style={styles.main} textAlign='center'>A helper app to facilitate monthly playlist/mixoff groups</Header>
+          <br />
+          <Header as='h1' inverted textAlign='center'>Spotify Mixoff</Header>
+          <Header as='h2' inverted textAlign='center'>A helper app to facilitate monthly playlist/mixoff groups</Header>
           <Grid columns={2}>
             <Grid.Row>
               <Grid.Column>
-              </Grid.Column
+              </Grid.Column>
             </Grid.Row>
             <Grid.Row>
               <Grid.Column>
