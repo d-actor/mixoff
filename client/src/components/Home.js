@@ -41,10 +41,4 @@ class Home extends Component {
   }
 }
 
-const styles = {
-  main: {
-    color: '#FFF',
-  }
-}
-
 export default Home;

@@ -5,7 +5,6 @@ import {
   List,
   Header,
   Icon,
-  Image,
 } from 'semantic-ui-react';
 import styled from 'styled-components';
 

@@ -1,18 +1,25 @@
 import React, { Component } from 'react';
-import { Header, Form, Button, Segment } from 'semantic-ui-react';
+import {
+  Container,
+  Header,
+  Form,
+  Button,
+  Segment,
+  Label,
+} from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { registerUser } from '../actions/auth';
 import { setFlash } from '../actions/flash';
 
 class Register extends Component {
-  state = { email: '', password: '', passwordConfirmation: '' };
+  state = { email: '', name: '', spotifyName: '', password: '', passwordConfirmation: '' };
 
   handleSubmit = event => {
     event.preventDefault();
-    const { email, password, passwordConfirmation } = this.state;
+    const { email, name, spotifyName, password, passwordConfirmation } = this.state;
     const { dispatch, history } = this.props;
     if (password === passwordConfirmation) {
-      dispatch(registerUser(email, password, passwordConfirmation, history));
+      dispatch(registerUser(email, name, spotifyName, password, passwordConfirmation, history));
     } else dispatch(setFlash('Passwords do not match!, please try again', 'red'));
   }
 
@@ -25,48 +32,70 @@ class Register extends Component {
   }
 
   render() {
-    const { email, password, passwordConfirmation } = this.state;
+    const { email, name, spotifyName, password, passwordConfirmation } = this.state;
 
     return (
-      <Segment basic>
-        <Header as='h1' textAlign='center'>Register Component</Header>
-        <Form onSubmit={this.handleSubmit}>
-          <Form.Field>
-            <label htmlFor='email'>Email</label>
-            <input
-              id='email'
-              placeholder='Email'
-              required
-              value={email}
-              onChange={this.handleChange}
-            />
-          </Form.Field>
-          <Form.Field>
-            <label htmlFor='password'>Password</label>
-            <input
-              id='password'
-              placeholder='Password'
-              type='password'
-              required
-              value={password}
-              onChange={this.handleChange}
-            />
-          </Form.Field>
-          <Form.Field>
-            <label htmlFor='passwordConfirmation'>Password Confirmation</label>
-            <input
-              id='passwordConfirmation'
-              placeholder='Password Confirmation'
-              type='password'
-              required
-              value={passwordConfirmation}
-              onChange={this.handleChange}
-            />
-          </Form.Field>
-          <Segment basic textAlign='center'>
-            <Button type='submit'>Submit</Button>
-          </Segment>
-        </Form>
+      <Segment inverted basic>
+        <Header as='h1' textAlign='center'>Register</Header>
+        <Container text>
+          <Form onSubmit={this.handleSubmit}>
+            <Form.Field>
+              <Label color="black" htmlFor='email'>Email</Label>
+              <input
+                id='email'
+                placeholder='Email'
+                required
+                value={email}
+                onChange={this.handleChange}
+              />
+            </Form.Field>
+            <Form.Field>
+              <Label color="black" htmlFor='name'>Name</Label>
+              <input
+                id='name'
+                placeholder='Name'
+                required
+                value={name}
+                onChange={this.handleChange}
+              />
+            </Form.Field>
+            <Form.Field>
+              <Label color="black" htmlFor='spotify_name'>Spotify Username</Label>
+              <input
+                id='spotifyName'
+                placeholder='Spotify Username'
+                required
+                value={spotifyName}
+                onChange={this.handleChange}
+              />
+            </Form.Field>
+            <Form.Field>
+              <Label color="black" htmlFor='password'>Password</Label>
+              <input
+                id='password'
+                placeholder='Password'
+                type='password'
+                required
+                value={password}
+                onChange={this.handleChange}
+              />
+            </Form.Field>
+            <Form.Field>
+              <Label color="black" htmlFor='passwordConfirmation'>Password Confirmation</Label>
+              <input
+                id='passwordConfirmation'
+                placeholder='Password Confirmation'
+                type='password'
+                required
+                value={passwordConfirmation}
+                onChange={this.handleChange}
+              />
+            </Form.Field>
+            <Segment basic textAlign='center'>
+              <Button type='submit'>Submit</Button>
+            </Segment>
+          </Form>
+        </Container>
       </Segment>
     );
   }

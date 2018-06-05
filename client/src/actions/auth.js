@@ -11,9 +11,9 @@ const logout = () => {
   return { type: 'LOGOUT' };
 };
 
-export const registerUser = (email, password, passwordConfirmation, history) => {
+export const registerUser = (email, name, spotifyName, password, passwordConfirmation, history) => {
   return dispatch => {
-    axios.post('/api/auth', { email, password, password_confirmation: passwordConfirmation })
+    axios.post('/api/auth', { email, name, spotify_name: spotifyName, password, password_confirmation: passwordConfirmation })
       .then(res => {
         const { data: { data: user }, headers } = res;
         dispatch(setHeaders(headers));
