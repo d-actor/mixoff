@@ -11,7 +11,7 @@ class Home extends Component {
   componentDidMount() {
     axios.get('/api/spotify/playlists')
       .then( res => {
-        console.log(res.data);
+        console.log(res);
       })
       .catch( res => {
         console.log(res);

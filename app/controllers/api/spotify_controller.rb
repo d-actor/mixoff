@@ -12,6 +12,7 @@ class Api::SpotifyController < ApplicationController
     end
 
     def set_user
-      @user = RSpotify::User.find('danltactor')
+      @user = RSpotify::User.find(current_user.spotify_name)
+      # binding.pry
     end
 end

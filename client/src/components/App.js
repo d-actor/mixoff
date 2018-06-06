@@ -9,6 +9,7 @@ import ProtectedRoute from './ProtectedRoute';
 import AuthRoute from './AuthRoute';
 import FetchUser from './FetchUser';
 import Footer from './Footer';
+import Profile from './Profile';
 import { Switch, Route } from 'react-router-dom';
 import { Segment } from 'semantic-ui-react';
 
@@ -24,6 +25,7 @@ class App extends Component {
               <Route exact path='/' component={Home} />
               <AuthRoute exact path='/login' component={Login} />
               <AuthRoute exact path='/register' component={Register} />
+              <ProtectedRoute exact path='/profile' component={Profile} />
               <Route component={NoMatch} />
             </Switch>
           </FetchUser>
