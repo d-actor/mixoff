@@ -7,6 +7,7 @@ import {
 import { connect } from 'react-redux';
 import axios from 'axios';
 import { setHeaders } from '../actions/headers';
+import { Link } from 'react-router-dom';
 
 class Profile extends Component {
   state = { playlists: [] }
@@ -27,6 +28,9 @@ class Profile extends Component {
     return playlists.map( playlist => {
       return(
         <Header as='h1'inverted>{playlist.name}</Header>
+        <Link to={`/playlist/${playlist.id}`}>
+          View Playlist
+        </Link>
       )
     })
   }
