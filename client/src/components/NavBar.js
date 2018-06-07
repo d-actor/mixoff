@@ -16,6 +16,9 @@ class NavBar extends Component {
             style={{color: 'white'}}
             onClick={() => dispatch(handleLogout(history))}
           />
+          <Link to='/profile'>
+            <Menu.Item style={{color: 'white'}} name='Profile' />
+          </Link>
         </Menu.Menu>
       );
     }
