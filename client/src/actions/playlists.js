@@ -12,7 +12,6 @@ export const fetchPlaylists = () => {
         dispatch(setPlaylists(res.data))
       })
       .catch( err => {
-        dispatch(setFlash('Error fetching user data', 'red', 'inverted'))
         console.log(err)
       });
   }
