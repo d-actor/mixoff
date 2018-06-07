@@ -19,14 +19,13 @@ export const registerUser = (email, name, spotifyName, password, passwordConfirm
         dispatch(setHeaders(headers));
         dispatch(login(user));
         history.push('/');
+        dispatch(setFlash("Registration Successful!"));
       })
       .catch(res => {
-        const messages =
-          res.response.data.errors.full_messages.map(message =>
-            <div>{message}</div>);
         const { headers } = res;
-        dispatch(setHeaders(headers));
+        const messages = res.response.data.errors;
         dispatch(setFlash(messages, 'red'));
+        dispatch(setHeaders(headers));
       });
   };
 };
@@ -43,8 +42,8 @@ export const handleLogout = history => {
       })
       .catch(res => {
         const messages =
-          res.response.data.errors.map(message =>
-            <div>{message}</div>);
+          res.response.data.errors.map(messag =>
+            <div>{messages}</div>);
         const { headers } = res;
         dispatch(setHeaders(headers));
         dispatch(setFlash(messages, 'red'));

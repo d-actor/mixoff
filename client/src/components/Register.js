@@ -81,7 +81,7 @@ class Register extends Component {
               />
             </Form.Field>
             <Form.Field>
-              <Label color="black" htmlFor='passwordConfirmation'>Password Confirmation</Label>
+              <Label color='black' htmlFor='passwordConfirmation'>Password Confirmation</Label>
               <input
                 id='passwordConfirmation'
                 placeholder='Password Confirmation'

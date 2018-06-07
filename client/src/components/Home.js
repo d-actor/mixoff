@@ -8,15 +8,15 @@ import {
 import axios from 'axios';
 
 class Home extends Component {
-  componentDidMount() {
-    axios.get('/api/spotify/playlists')
-      .then( res => {
-        console.log(res);
-      })
-      .catch( res => {
-        console.log(res);
-      })
-  }
+//  componentDidMount() {
+//    axios.get('/api/spotify/playlists')
+//      .then( res => {
+//        console.log(res);
+//      })
+//      .catch( res => {
+//        console.log(res);
+//      })
+//  }
 
   render() {
     return (

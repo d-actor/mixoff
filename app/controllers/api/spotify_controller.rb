@@ -4,6 +4,7 @@ class Api::SpotifyController < ApplicationController
 
   def playlists
     playlists = @user.playlists
+    render json: playlists
   end
 
   private
@@ -13,6 +14,5 @@ class Api::SpotifyController < ApplicationController
 
     def set_user
       @user = RSpotify::User.find(current_user.spotify_name)
-      # binding.pry
     end
 end

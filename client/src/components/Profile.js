@@ -13,6 +13,7 @@ class Profile extends Component {
     axios.get('/api/spotify/playlists')
       .then( res => {
         console.log(res);
+        this.setState({ playlists: res.data });
       })
       .catch( res => {
         console.log(res);
