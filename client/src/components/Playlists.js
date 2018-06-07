@@ -5,12 +5,10 @@ import {
   Container,
 } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import axios from 'axios';
-import { setHeaders } from '../actions/headers';
 import { fetchPlaylists } from '../actions/playlists';
 import { Link } from 'react-router-dom';
 
-class Profile extends Component {
+class Playlists extends Component {
 //  state = { playlists: [] }
 
   componentDidMount() {
@@ -57,4 +55,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(Profile);
+export default connect(mapStateToProps)(Playlists);

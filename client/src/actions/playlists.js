@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { setFlash } from './flash';
 
 const setPlaylists = (playlists) => {
   return { type: 'SET_PLAYLISTS', playlists: playlists }

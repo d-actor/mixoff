@@ -11,8 +11,8 @@ class NavBar extends Component {
     if (user.id) {
       return (
         <Menu.Menu position='right'>
-          <Link to='/profile'>
-            <Menu.Item style={{color: 'white'}} name='Profile' />
+          <Link to='/playlists'>
+            <Menu.Item style={{color: 'white'}} name='Playlists' />
           </Link>
           <Menu.Item
             name='Logout'

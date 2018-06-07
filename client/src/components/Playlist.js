@@ -42,7 +42,7 @@ class Playlist extends React.Component {
 
     return(
       <Container>
-        <Link to='/profile'>Back to Profile</Link>
+        <Link to='/playlists'>Back to Playlists</Link>
         <Header inverted as='h3' textAlign='center'>{playlist.name}</Header>
         <Grid columns={2}>
           <Grid.Column width={4}>
