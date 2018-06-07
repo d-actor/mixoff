@@ -7,30 +7,35 @@ import {
 import { connect } from 'react-redux';
 import axios from 'axios';
 import { setHeaders } from '../actions/headers';
+import { fetchPlaylists } from '../actions/playlists';
 import { Link } from 'react-router-dom';
 
 class Profile extends Component {
-  state = { playlists: [] }
+//  state = { playlists: [] }
 
   componentDidMount() {
-  const {dispatch} = this.props;
-    axios.get('/api/spotify/playlists')
-      .then( res => {
-        dispatch(setHeaders(res.headers));
-        this.setState({ playlists: res.data });
-      })
-      .catch( res => {
-        console.log(res);
-      })
+    this.props.dispatch(fetchPlaylists());
+//  const {dispatch} = this.props;
+//    axios.get('/api/spotify/playlists')
+//      .then( res => {
+//        dispatch(setHeaders(res.headers));
+//        this.setState({ playlists: res.data });
+//      })
+//      .catch( res => {
+//        console.log(res);
+//      })
   }
+
   showPlaylists = () => {
-    const { playlists } = this.state;
+    const { playlists } = this.props;
     return playlists.map( playlist => {
       return(
-        <Header as='h1'inverted>{playlist.name}</Header>
-        <Link to={`/playlist/${playlist.id}`}>
-          View Playlist
-        </Link>
+        <Segment basic>
+          <Header as='h1'inverted>{playlist.name}</Header>
+          <Link to={`/playlist/${playlist.id}`}>
+            View Playlist
+          </Link>
+        </Segment>
       )
     })
   }
@@ -46,4 +51,10 @@ class Profile extends Component {
   }
 }
 
-export default connect()(Profile);
+const mapStateToProps = (state) => {
+  return {
+    playlists: state.playlists,
+  }
+}
+
+export default connect(mapStateToProps)(Profile);
