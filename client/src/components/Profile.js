@@ -4,36 +4,42 @@ import {
   Segment,
   Container,
 } from 'semantic-ui-react';
+import { connect } from 'react-redux';
 import axios from 'axios';
+import { setHeaders } from '../actions/headers';
 
 class Profile extends Component {
   state = { playlists: [] }
 
   componentDidMount() {
+  const {dispatch} = this.props;
     axios.get('/api/spotify/playlists')
       .then( res => {
-        console.log(res);
+        dispatch(setHeaders(res.headers));
         this.setState({ playlists: res.data });
       })
       .catch( res => {
         console.log(res);
       })
   }
+  showPlaylists = () => {
+    const { playlists } = this.state;
+    return playlists.map( playlist => {
+      return(
+        <Header as='h1'inverted>{playlist.name}</Header>
+      )
+    })
+  }
 
   render() {
-    const { playlists } = this.state;
     return (
       <Segment inverted>
         <Container>
-          {
-            playlists.map( playlist => {
-            <p>playlist</p>
-          })
-        }
+          {this.showPlaylists()}
         </Container>
       </Segment>
     )
   }
 }
 
-export default Profile;
+export default connect()(Profile);
