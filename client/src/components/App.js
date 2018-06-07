@@ -17,7 +17,7 @@ import { Segment } from 'semantic-ui-react';
 class App extends Component {
   render() {
     return (
-      <Segment style={styles.background}>
+      <Segment basic style={styles.background}>
         <div style={styles.wrapper}>
           <NavBar />
           <Flash />
