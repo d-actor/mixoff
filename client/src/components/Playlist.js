@@ -27,6 +27,7 @@ class Playlist extends React.Component {
   }
 
   displayTracks = () => {
+    console.log(this.props.playlist)
     const { tracks } = this.state;
     return tracks.map(track => {
       return(
@@ -46,7 +47,11 @@ class Playlist extends React.Component {
         <Header inverted as='h3' textAlign='center'>{playlist.name}</Header>
         <Grid columns={2}>
           <Grid.Column width={4}>
-            <Image size='medium' src={playlist.images[0].url} />
+            <Segment textAlign='center' basic>
+              <Image size='medium' src={playlist.images[0].url} />
+              <br />
+              <Link to={playlist.external_urls.spotify} target='_blank'>Listen</Link>
+            </Segment>
           </Grid.Column>
           <Grid.Column width={12}>
             <Table definition inverted>
