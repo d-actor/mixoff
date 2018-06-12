@@ -8,6 +8,7 @@ gem 'devise'
 gem 'devise_token_auth'
 gem 'rspotify'
 gem 'dotenv-rails'
+gem 'acts_as_follower'
 
 group :development, :test do
   gem 'pry', platforms: [:mri, :mingw, :x64_mingw]
