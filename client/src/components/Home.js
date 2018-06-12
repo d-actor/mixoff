@@ -7,15 +7,6 @@ import {
 } from 'semantic-ui-react';
 
 class Home extends Component {
-//  componentDidMount() {
-//    axios.get('/api/spotify/playlists')
-//      .then( res => {
-//        console.log(res);
-//      })
-//      .catch( res => {
-//        console.log(res);
-//      })
-//  }
 
   render() {
     return (
