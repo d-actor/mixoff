@@ -11,6 +11,7 @@ import {
 } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { setFlash } from '../actions/flash'
 
 class Users extends React.Component {
   state = { users: [] }
@@ -28,8 +29,8 @@ class Users extends React.Component {
   displayUsers = () => {
     return this.state.users.map( user => {
       return(
-        <Segment>
-          <Header as='h5'>{user.name}</Header>
+        <Segment basic>
+          <Header as='h5' style={{color: 'white'}}>{user.name}</Header>
           <Button onClick={() => this.friendUser(user.id)}>
             <Icon name='add user' />
           </Button>
@@ -55,10 +56,10 @@ class Users extends React.Component {
 
   render() {
     return(
-      <Segment basic>
+      <Container>
         <Header as='h1' textAlign='center' style={{color: 'white'}}>Users</Header>
         {this.displayUsers()}
-      </Segment>
+      </Container>
     )
   }
 }
