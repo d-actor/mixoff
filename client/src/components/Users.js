@@ -21,8 +21,15 @@ class Users extends React.Component {
     // TODO search users
   }
 
-  friendUser = () => {
-    //TODO friend user
+  friendUser = (id) => {
+    axios.post('/api/follows/create', { user_id: id })
+      .then(res => {
+        //TODO flash messages
+        console.log(res)
+      })
+      .catch( err => {
+        console.log(err)
+      })
   }
 
   render() {
