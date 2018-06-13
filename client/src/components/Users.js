@@ -5,7 +5,9 @@ import {
   Container,
   Table,
   Grid,
-  Segment
+  Segment,
+  Button,
+  Icon,
 } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
@@ -14,7 +16,26 @@ class Users extends React.Component {
   state = { users: [] }
 
   componentDidMount() {
-    // TODO bring in users
+    axios.get('/api/users')
+      .then( res => {
+        this.setState({ users: res.data })
+      })
+      .catch( err => {
+        console.log(err)
+      })
+  }
+
+  displayUsers = () => {
+    return this.state.users.map( user => {
+      return(
+        <Segment>
+          <Header as='h5'>{user.name}</Header>
+          <Button onClick={() => this.friendUser(user.id)}>
+            <Icon name='add user' />
+          </Button>
+        </Segment>
+      )
+    })
   }
 
   searchUsers = () => {
@@ -36,6 +57,7 @@ class Users extends React.Component {
     return(
       <Segment basic>
         <Header as='h1' textAlign='center' style={{color: 'white'}}>Users</Header>
+        {this.displayUsers()}
       </Segment>
     )
   }

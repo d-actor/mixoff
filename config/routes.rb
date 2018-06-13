@@ -8,6 +8,10 @@ Rails.application.routes.draw do
     # follow routes
     post 'follows/create', to: "follows#create"
     delete 'follows/destroy', to:"follows#destroy"
+
+    # user routes
+    get 'users', to: "users#index"
+
   end
 
   #Do not place any routes below this one
