@@ -1,6 +1,9 @@
 class Api::UsersController < ApplicationController
   def index
-    render json: User.all
+    all = User.all.select do |user|
+      user.id != current_user.id
+    end
+    render json: all
   end
 
   def show
