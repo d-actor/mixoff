@@ -35,6 +35,7 @@ class Users extends React.Component {
             <Icon name='add user' />
           </Button>
         </Segment>
+        // TODO add flash messages
       )
     })
   }
