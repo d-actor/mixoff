@@ -5,12 +5,13 @@ import Login from './Login';
 import Register from './Register';
 import Flash from './Flash';
 import Home from './Home';
-// import ProtectedRoute from './ProtectedRoute';
+import ProtectedRoute from './ProtectedRoute';
 import AuthRoute from './AuthRoute';
 import FetchUser from './FetchUser';
 import Footer from './Footer';
 import Playlists from './Playlists';
 import Playlist from './Playlist';
+import Users from './Users';
 import { Switch, Route } from 'react-router-dom';
 import { Segment } from 'semantic-ui-react';
 
@@ -26,8 +27,9 @@ class App extends Component {
               <Route exact path='/' component={Home} />
               <AuthRoute exact path='/login' component={Login} />
               <AuthRoute exact path='/register' component={Register} />
-              <Route exact path='/playlists' component={Playlists} />
-              <Route exact path='/playlist/:id' component={Playlist} />
+              <ProtectedRoute exact path='/playlists' component={Playlists} />
+              <ProtectedRoute exact path='/playlist/:id' component={Playlist} />
+              <ProtectedRoute exact path='/users' component={Users} />
               <Route component={NoMatch} />
             </Switch>
           </FetchUser>

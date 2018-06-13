@@ -14,6 +14,9 @@ class NavBar extends Component {
           <Link to='/playlists'>
             <Menu.Item style={{color: 'white'}} name='Playlists' />
           </Link>
+          <Link to='/users'>
+            <Menu.Item style={{color: 'white'}} name='Users' />
+          </Link>
           <Menu.Item
             name='Logout'
             style={{color: 'white'}}
