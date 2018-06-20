@@ -12,6 +12,7 @@ import Footer from './Footer';
 import Playlists from './Playlists';
 import Playlist from './Playlist';
 import Users from './Users';
+import MixOff from './MixOff';
 import { Switch, Route } from 'react-router-dom';
 import { Segment } from 'semantic-ui-react';
 
@@ -30,6 +31,7 @@ class App extends Component {
               <ProtectedRoute exact path='/playlists' component={Playlists} />
               <ProtectedRoute exact path='/playlist/:id' component={Playlist} />
               <ProtectedRoute exact path='/users' component={Users} />
+              <ProtectedRoute exact path='/mixoff' component={MixOff} />
               <Route component={NoMatch} />
             </Switch>
           </FetchUser>
