@@ -13,15 +13,6 @@ class Playlists extends Component {
 
   componentDidMount() {
     this.props.dispatch(fetchPlaylists());
-//  const {dispatch} = this.props;
-//    axios.get('/api/spotify/playlists')
-//      .then( res => {
-//        dispatch(setHeaders(res.headers));
-//        this.setState({ playlists: res.data });
-//      })
-//      .catch( res => {
-//        console.log(res);
-//      })
   }
 
   showPlaylists = () => {
