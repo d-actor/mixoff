@@ -10,19 +10,22 @@ import {
 } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { setHeaders } from '../actions/headers';
 
 class Playlist extends React.Component {
   state = { tracks: [] }
 
   componentDidMount() {
-    const { playlist } = this.props;
+    const { playlist, dispatch } = this.props;
     axios.get(`/api/spotify/tracks/${playlist.id}`)
       .then( res => {
         this.setState({ tracks: res.data });
+        dispatch(setHeaders(res.headers));
       })
       .catch( err => {
         console.log(err);
         console.log(playlist.id)
+        dispatch(setHeaders(err.headers));
       });
   }
 

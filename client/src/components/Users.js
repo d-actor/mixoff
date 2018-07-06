@@ -11,18 +11,22 @@ import {
 } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { setFlash } from '../actions/flash'
+import { setFlash } from '../actions/flash';
+import { setHeaders } from '../actions/headers';
 
 class Users extends React.Component {
   state = { users: [] }
 
   componentDidMount() {
+    const { dispatch } = this.props;
     axios.get('/api/users')
       .then( res => {
         this.setState({ users: res.data })
+        dispatch(setHeaders(res.headers));
       })
       .catch( err => {
         console.log(err)
+        dispatch(setHeaders(err.headers));
       })
   }
 
@@ -57,7 +61,7 @@ class Users extends React.Component {
 
   render() {
     return(
-      <Container>
+      <Container text>
         <Header as='h1' textAlign='center' style={{color: 'white'}}>Users</Header>
         {this.displayUsers()}
       </Container>
