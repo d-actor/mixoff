@@ -45,17 +45,23 @@ class Users extends React.Component {
   }
 
   searchUsers = () => {
-    // TODO search users
+    // TODO
   }
 
   friendUser = (id) => {
+    const { dispatch } = this.props;
     axios.post('/api/follows/create', { user_id: id })
       .then(res => {
-        //TODO flash messages
-        console.log(res)
+        this.setState({
+          users: users.filter( u => u.id !== id )
+        });
+        dispatch(setFlash("+", "green")
+        dispatch(setHeaders(res.headers));
       })
       .catch( err => {
         console.log(err)
+        dispatch(setFlash("Error", "red")
+        dispatch(setHeaders(err.headers));
       })
   }
 
