@@ -50,17 +50,18 @@ class Users extends React.Component {
 
   friendUser = (id) => {
     const { dispatch } = this.props;
+    const { users } = this.state;
     axios.post('/api/follows/create', { user_id: id })
       .then(res => {
         this.setState({
           users: users.filter( u => u.id !== id )
         });
-        dispatch(setFlash("+", "green")
+        dispatch(setFlash("+", "green"));
         dispatch(setHeaders(res.headers));
       })
       .catch( err => {
         console.log(err)
-        dispatch(setFlash("Error", "red")
+        dispatch(setFlash("Error", "red"));
         dispatch(setHeaders(err.headers));
       })
   }
