@@ -14,4 +14,5 @@
 !/tmp/.keep
 .env
 .byebug_history
-.swo
+*.swp
+*.swo

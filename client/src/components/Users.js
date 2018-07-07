@@ -70,3 +70,4 @@ class Users extends React.Component {
 }
 
 export default connect()(Users);
+
