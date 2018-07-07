@@ -5,3 +5,4 @@ export const setFlash = (message, color) => {
 export const clearFlash = () => {
   return { type: 'CLEAR_FLASH' };
 };
+

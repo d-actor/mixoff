@@ -10,3 +10,4 @@ const playlists = (state = [], action) => {
 }
 
 export default playlists;
+

@@ -87,3 +87,4 @@ export const validateToken = (callBack = () => {}) => {
       .catch(() => callBack());
   };
 };
+

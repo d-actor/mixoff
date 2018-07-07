@@ -10,3 +10,4 @@ const flash = (state = {}, action) => {
 };
 
 export default flash;
+
