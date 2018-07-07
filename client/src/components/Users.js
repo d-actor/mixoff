@@ -3,13 +3,10 @@ import { connect } from 'react-redux';
 import {
   Header,
   Container,
-  Table,
-  Grid,
   Segment,
   Button,
   Icon,
 } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { setFlash } from '../actions/flash';
 import { setHeaders } from '../actions/headers';
