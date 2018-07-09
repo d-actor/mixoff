@@ -18,7 +18,6 @@ class Api::FollowsController < ApplicationController
 
   private
     def set_user
-      binding.pry
       @user = User.find(params[:user_id])
     end
 end

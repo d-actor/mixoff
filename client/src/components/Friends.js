@@ -27,10 +27,9 @@ class Friends extends React.Component {
   }
 
   unfriend = (id) => {
-    debugger
     const { dispatch } = this.props;
     const { friends } = this.state;
-    axios.delete('/api/follows/destroy', { user_id: id })
+    axios.post('/api/follows/destroy', { user_id: id })
       .then( res => {
         this.setState({
           friends: friends.filter(f => f.id !== id)

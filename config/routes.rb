@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
     # follow routes
     post 'follows/create', to: "follows#create"
-    delete 'follows/destroy', to: "follows#destroy"
+    post 'follows/destroy', to: "follows#destroy"
     get '/friends', to: "follows#index_friends"
 
     # user routes
