@@ -9,7 +9,7 @@ class MixoffForm extends React.Component {
   render() {
     return(
       <Container>
-        <Header as='h1'>New Mixoff</Header>
+        <Header inverted as='h1'>New Mixoff</Header>
       </Container>
     )
   }
