@@ -4,7 +4,9 @@ import {
   Segment,
   Container,
   Grid,
+  Button,
 } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 
 class Home extends Component {
 
@@ -18,6 +20,9 @@ class Home extends Component {
           <Grid columns={2}>
             <Grid.Row>
               <Grid.Column>
+                <Link to="/new_mixoff">
+                  <Button primary>New Mixoff</Button>
+                </Link>
               </Grid.Column>
             </Grid.Row>
             <Grid.Row>

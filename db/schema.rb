@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180612205451) do
+ActiveRecord::Schema.define(version: 20180710031207) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,20 +30,18 @@ ActiveRecord::Schema.define(version: 20180612205451) do
   end
 
   create_table "mixoffs", force: :cascade do |t|
-    t.string "name"
-    t.string "month"
+    t.string "title"
+    t.text "description"
+    t.boolean "recurring"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "playlists", force: :cascade do |t|
     t.string "name"
-    t.bigint "user_id"
-    t.bigint "mixoff_id"
+    t.integer "spotify_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["mixoff_id"], name: "index_playlists_on_mixoff_id"
-    t.index ["user_id"], name: "index_playlists_on_user_id"
   end
 
   create_table "songs", force: :cascade do |t|
@@ -82,6 +80,4 @@ ActiveRecord::Schema.define(version: 20180612205451) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
-  add_foreign_key "playlists", "mixoffs"
-  add_foreign_key "playlists", "users"
 end
