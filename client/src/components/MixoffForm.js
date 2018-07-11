@@ -10,17 +10,45 @@ import {
 import { connect } from 'react-redux';
 
 class MixoffForm extends React.Component {
+  state = { name: '', recurring: true }
 
   handleSubmit = () => {
     //TODO
   }
 
+  handleChange = (e) => {
+    const id = e.target.id;
+    const value = e.target.value;
+    this.setState({ [id]: value });
+  }
+
   render() {
+    const { name, recurring } = this.state;
+
     return(
       <Segment basic inverted>
         <Header textAlign='center' inverted as='h1'>New Mixoff</Header>
         <Container textAlign="left">
           <Form onSubmit={this.handleSubmit}>
+            <Form.Field>
+              <Label color="black" htmlFor='name'>Mixoff Name</Label>
+              <input
+                id="name"
+                placeholder="Mixoff Name"
+                required
+                value={name}
+                onChange={this.handleChange}
+              />
+            </Form.Field>
+            <Form.Field>
+              <Label color="black" htmlFor="recurring">Recurring</Label>
+              <input
+                id="recurring"
+                type="checkbox"
+                checked={recurring}
+                onChange={this.handleChange}
+              />
+            </Form.Field>
           </Form>
         </Container>
       </Segment>
