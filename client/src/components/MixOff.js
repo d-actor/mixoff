@@ -20,4 +20,3 @@ class MixOff extends Component {
 }
 
 export default MixOff;
-
