@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180710031207) do
+ActiveRecord::Schema.define(version: 20180712235301) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20180710031207) do
     t.boolean "recurring"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "track_limit"
   end
 
   create_table "playlists", force: :cascade do |t|
