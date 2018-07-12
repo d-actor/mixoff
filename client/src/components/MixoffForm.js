@@ -10,7 +10,7 @@ import {
 import { connect } from 'react-redux';
 
 class MixoffForm extends React.Component {
-  state = { name: '', recurring: true }
+  state = { name: '', trackLimit: '', theme: '', recurring: true }
 
   handleSubmit = () => {
     //TODO
@@ -23,12 +23,12 @@ class MixoffForm extends React.Component {
   }
 
   render() {
-    const { name, recurring } = this.state;
+    const { name, trackLimit, recurring, theme } = this.state;
 
     return(
       <Segment basic inverted>
         <Header textAlign='center' inverted as='h1'>New Mixoff</Header>
-        <Container textAlign="left">
+        <Container text textAlign="left">
           <Form onSubmit={this.handleSubmit}>
             <Form.Field>
               <Label color="black" htmlFor='name'>Mixoff Name</Label>
@@ -41,11 +41,28 @@ class MixoffForm extends React.Component {
               />
             </Form.Field>
             <Form.Field>
+              <Label color="black" htmlFor="theme">Theme</Label>
+              <input
+                id="theme"
+                placeholder="Theme"
+                value={trackLimit}
+                onChange={this.handleChange}
+              />
+            </Form.Field>
+            <Form.Field>
+              <Label color="black" htmlFor="trackLimit">Track Limit</Label>
+              <input
+                id="trackLimit"
+                placeholder="Track Limit"
+                value={theme}
+                onChange={this.handleChange}
+              />
+            </Form.Field>
+            <Form.Field>
               <Label color="black" htmlFor="recurring">Recurring</Label>
               <input
                 id="recurring"
                 type="checkbox"
-                checked={recurring}
                 onChange={this.handleChange}
               />
             </Form.Field>
