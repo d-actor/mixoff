@@ -9,7 +9,7 @@ import {
 } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import axios from 'axios';
-import { addMixoff } from '../actions/mixoff';
+import { addMixoff } from '../actions/mixoffs';
 
 class MixoffForm extends React.Component {
   state = { name: '', trackLimit: '', theme: '', recurring: true }
@@ -18,8 +18,7 @@ class MixoffForm extends React.Component {
     e.preventDefault();
     const { name, trackLimit, theme, recurring } = this.state;
     const { dispatch } = this.props;
-    let mixoff = { name, trackLimit, theme, recurring }
-    dispatch(addMixoff(mixoff));
+    dispatch(addMixoff(name, theme, recurring, trackLimit));
     this.setState({ name: '', trackLimit: '', theme: '', recurring: true })
   }
 
@@ -37,47 +36,44 @@ class MixoffForm extends React.Component {
         <Header textAlign='center' inverted as='h1'>New Mixoff</Header>
         <Container text textAlign="left">
           <Form onSubmit={this.handleSubmit}>
-            <Form.Group>
-              <Form.Field>
-                <Label color="black" htmlFor='name'>Mixoff Name</Label>
-                <input
-                  id="name"
-                  placeholder="Mixoff Name"
-                  required
-                  value={name}
-                  onChange={this.handleChange}
-                />
-              </Form.Field>
-              <Form.Field>
-                <Label color="black" htmlFor="theme">Theme</Label>
-                <input
-                  id="theme"
-                  placeholder="Theme"
-                  value={trackLimit}
-                  onChange={this.handleChange}
-                />
-              </Form.Field>
-              <Form.Field>
-                <Label color="black" htmlFor="trackLimit">Track Limit</Label>
-                <input
-                  id="trackLimit"
-                  placeholder="Track Limit"
-                  value={theme}
-                  onChange={this.handleChange}
-                />
-              </Form.Field>
-              <Form.Field>
-                <Label color="black" htmlFor="recurring">Recurring</Label>
-                <input
-                  id="recurring"
-                  type="checkbox"
-                  onChange={this.handleChange}
-                />
-              </Form.Field>
-            </Form.Group>
-            <Form.Group>
-              <Button type="submit">Create</Button>
-            </Form.Group>
+            <Form.Field>
+              <Label color="black" htmlFor='name'>Mixoff Name</Label>
+              <input
+                id="name"
+                placeholder="Mixoff Name"
+                required
+                value={name}
+                onChange={this.handleChange}
+              />
+            </Form.Field>
+            <Form.Field>
+              <Label color="black" htmlFor="theme">Theme</Label>
+              <input
+                id="theme"
+                placeholder="Theme"
+                value={theme}
+                onChange={this.handleChange}
+              />
+            </Form.Field>
+            <Form.Field>
+              <Label color="black" htmlFor="trackLimit">Track Limit</Label>
+              <input
+                id="trackLimit"
+                placeholder="Track Limit"
+                value={trackLimit}
+                onChange={this.handleChange}
+              />
+            </Form.Field>
+            <Form.Field>
+              <Label color="black" htmlFor="recurring">Recurring</Label>
+              <input
+                id="recurring"
+                type="checkbox"
+                value={recurring}
+                onChange={this.handleChange}
+              />
+            </Form.Field>
+            <Button primary type="submit">Create</Button>
           </Form>
         </Container>
       </Segment>
