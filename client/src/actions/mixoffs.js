@@ -2,7 +2,7 @@ import axios from 'axios';
 import { setFlash } from './flash';
 import { setHeaders } from './headers';
 
-export const addMixoff = (mixoff, history) => {
+export const addMixoff = (mixoff) => {
   return (dispatch) => {
     axios.post('/api/mixoffs', { mixoff: { name, theme, recurring, track_limit: trackLimit } })
       .then( res => {

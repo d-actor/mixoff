@@ -17,9 +17,9 @@ class MixoffForm extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const { name, trackLimit, theme, recurring } = this.state;
-    const { dispatch, history } = this.props;
+    const { dispatch } = this.props;
     let mixoff = { name, trackLimit, theme, recurring }
-    dispatch(addMixoff(mixoff, history));
+    dispatch(addMixoff(mixoff));
     this.setState({ name: '', trackLimit: '', theme: '', recurring: true })
   }
 
