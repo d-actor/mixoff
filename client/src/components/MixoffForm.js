@@ -8,12 +8,17 @@ import {
   Label,
 } from 'semantic-ui-react';
 import { connect } from 'react-redux';
+import axios from 'axios';
+import { setFlash } from '../actions/flash';
 
 class MixoffForm extends React.Component {
   state = { name: '', trackLimit: '', theme: '', recurring: true }
 
-  handleSubmit = () => {
-    //TODO
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const { name, trackLimit, theme, recurring } = this.state;
+    const { dispatch } = this.props;
+    // add redux for mixoffs
   }
 
   handleChange = (e) => {
