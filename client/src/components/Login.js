@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   Header,
   Segment,
@@ -10,7 +10,7 @@ import {
 import { connect } from 'react-redux';
 import { handleLogin } from '../actions/auth';
 
-class Login extends Component {
+class Login extends React.Component {
   state = { email: '', password: '' };
 
   handleChange = event => {

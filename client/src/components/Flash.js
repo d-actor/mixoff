@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { Message, Container, Header } from 'semantic-ui-react';
 import { clearFlash } from '../actions/flash';
 import { withRouter } from 'react-router-dom';
 
-class Flash extends Component { 
+class Flash extends React.Component {
   componentDidUpdate(prevProps) {
     const { location: prevLocation, flash: prevFlash } = prevProps;
     const { location, flash, dispatch } = this.props;
-    
+
     const prevMessage = prevFlash.message;
     const prevUrl = prevLocation.pathname;
     const currentMessage = flash.message;

@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   Header,
   Segment,
   Container,
 } from 'semantic-ui-react';
 
-class MixOff extends Component {
+class MixOff extends React.Component {
 
   render() {
     return(

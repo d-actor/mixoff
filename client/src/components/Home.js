@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   Header,
   Segment,
@@ -8,7 +8,7 @@ import {
 } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
-class Home extends Component {
+class Home extends React.Component {
 
   render() {
     return (

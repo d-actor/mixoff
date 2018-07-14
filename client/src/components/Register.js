@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   Container,
   Header,
@@ -11,7 +11,7 @@ import { connect } from 'react-redux';
 import { registerUser } from '../actions/auth';
 import { setFlash } from '../actions/flash';
 
-class Register extends Component {
+class Register extends React.Component {
   state = { email: '', name: '', spotifyName: '', password: '', passwordConfirmation: '' };
 
   handleSubmit = event => {

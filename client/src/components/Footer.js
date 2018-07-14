@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   Segment,
   Grid,
@@ -8,7 +8,7 @@ import {
 } from 'semantic-ui-react';
 import styled from 'styled-components';
 
-class Footer extends Component {
+class Footer extends React.Component {
   render() {
     return(
       <Segment inverted vertical>

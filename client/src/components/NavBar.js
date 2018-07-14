@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Menu } from 'semantic-ui-react';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { handleLogout } from '../actions/auth';
 
-class NavBar extends Component {
+class NavBar extends React.Component {
   rightNavs = () => {
     const { user, dispatch, history } = this.props;
 

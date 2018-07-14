@@ -1,15 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   Header,
   Segment,
   Container,
 } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import { fetchPlaylists } from '../actions/playlists';
 import { Link } from 'react-router-dom';
+import { fetchPlaylists } from '../actions/playlists';
 
-class Playlists extends Component {
-//  state = { playlists: [] }
+class Playlists extends React.Component {
 
   componentDidMount() {
     this.props.dispatch(fetchPlaylists());
@@ -20,7 +19,7 @@ class Playlists extends Component {
     return playlists.map( playlist => {
       return(
         <Segment basic>
-          <Header as='h1'inverted>{playlist.name}</Header>
+          <Header as='h1'inverted>{ playlist.name }</Header>
           <Link to={`/playlist/${playlist.id}`}>
             View Playlist
           </Link>
@@ -33,7 +32,7 @@ class Playlists extends Component {
     return (
       <Segment inverted>
         <Container>
-          {this.showPlaylists()}
+          { this.showPlaylists() }
         </Container>
       </Segment>
     )

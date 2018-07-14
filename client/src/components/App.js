@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import NoMatch from './NoMatch';
 import NavBar from './NavBar';
 import Login from './Login';
@@ -18,7 +18,7 @@ import Friends from './Friends';
 import { Switch, Route } from 'react-router-dom';
 import { Segment } from 'semantic-ui-react';
 
-class App extends Component {
+class App extends React.Component {
   render() {
     return (
       <Segment basic style={styles.background}>
