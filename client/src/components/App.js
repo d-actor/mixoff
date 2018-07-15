@@ -14,7 +14,9 @@ import Playlist from './Playlist';
 import Users from './Users';
 import MixOff from './MixOff';
 import MixoffForm from './MixoffForm';
+import Mixoffs from './Mixoffs';
 import Friends from './Friends';
+import Profile from './Profile';
 import { Switch, Route } from 'react-router-dom';
 import { Segment } from 'semantic-ui-react';
 
@@ -33,9 +35,11 @@ class App extends React.Component {
               <ProtectedRoute exact path='/playlists' component={Playlists} />
               <ProtectedRoute exact path='/playlist/:id' component={Playlist} />
               <ProtectedRoute exact path='/users' component={Users} />
-              <ProtectedRoute exact path='/mixoff' component={MixOff} />
+              <ProtectedRoute exact path='/mixoffs' component={Mixoffs} />
+              <ProtectedRoute exact path='/mixoff/:id' component={MixOff} />
               <ProtectedRoute exact path='/new_mixoff' component={MixoffForm} />
               <ProtectedRoute exact path='/friends' component={Friends} />
+              <ProtectedRoute eact path='/profile' component={Profile} />
               <Route component={NoMatch} />
             </Switch>
           </FetchUser>

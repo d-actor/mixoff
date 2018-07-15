@@ -2,12 +2,21 @@ import axios from 'axios';
 import { setFlash } from './flash';
 import { setHeaders } from './headers';
 
+const setMixoffs = (mixoffs) => {
+  return { type: 'MIXOFFS', mixoffs: mixoffs }
+}
+
+const sendMixoff = (mixoff) => {
+  return { type: 'ADD_MIXOFF', mixoff: mixoff }
+}
+
 export const fetchMixoffs = () => {
   return (dispatch) => {
     axios.get('/api/mixoffs')
       .then( res => {
+        debugger
         dispatch(setHeaders(res.headers));
-        dispatch({ type: 'MIXOFFS', mixoffs: res.data });
+        dispatch(setMixoffs(res.data));
       })
       .catch( err => {
         dispatch(setHeaders(err.headers))
@@ -22,7 +31,7 @@ export const addMixoff = (name, theme, recurring, trackLimit) => {
     axios.post('/api/mixoffs', { title: name, description: theme, recurring, track_limit: trackLimit })
       .then( res => {
         dispatch(setHeaders(res.headers));
-        dispatch({ type: 'ADD_MIXOFF', mixoff: res.data });
+        dispatch(sendMixoff(res.data));
         //TODO push to Mixoff page for created mixoff
       })
       .catch( err => {

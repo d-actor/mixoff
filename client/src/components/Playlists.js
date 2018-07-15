@@ -39,7 +39,7 @@ class Playlists extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, props) => {
   return {
     playlists: state.playlists,
   }

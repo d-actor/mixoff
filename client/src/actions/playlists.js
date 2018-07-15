@@ -13,8 +13,8 @@ export const fetchPlaylists = () => {
   return dispatch => {
     axios.get('/api/spotify/playlists')
       .then(res  => {
-        dispatch(setPlaylists(res.data))
         dispatch(setHeaders(res.headers))
+        dispatch(setPlaylists(res.data))
       })
       .catch( err => {
         console.log(err)

@@ -5,8 +5,9 @@ import { Link } from 'react-router-dom';
 class NoMatch extends React.Component {
   render() {
     return (
-      <Header as='h1' textAlign='center'>
+      <Header inverted as='h1' textAlign='center'>
         Page Not Found
+        <hr />
         <Link to='/'> Home</Link>
       </Header>
     );
