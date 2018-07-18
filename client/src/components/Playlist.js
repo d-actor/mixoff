@@ -24,7 +24,6 @@ class Playlist extends React.Component {
       })
       .catch( err => {
         console.log(err);
-        console.log(playlist.id)
         dispatch(setHeaders(err.headers));
       });
   }
