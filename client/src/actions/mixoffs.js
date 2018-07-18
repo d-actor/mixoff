@@ -14,7 +14,6 @@ export const fetchMixoffs = () => {
   return (dispatch) => {
     axios.get('/api/mixoffs')
       .then( res => {
-        debugger
         dispatch(setHeaders(res.headers));
         dispatch(setMixoffs(res.data));
       })

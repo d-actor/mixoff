@@ -30,7 +30,6 @@ class Playlist extends React.Component {
   }
 
   displayTracks = () => {
-    console.log(this.props.playlist)
     const { tracks } = this.state;
     return tracks.map(track => {
       return(
