@@ -3,7 +3,6 @@ const mixoffs = (state = [], action) => {
     case 'ADD_MIXOFF':
       return [action.mixoff, ...state]
     case 'MIXOFFS':
-      debugger
       return action.mixoffs
     default:
       return state;

@@ -8,9 +8,13 @@ import {
 
 class MixOff extends React.Component {
 
+  componentDidMount() {
+    console.log(this.props.mixoff);
+    debugger
+  }
+
   render() {
     const { mixoff } = this.props;
-
     return(
       <Segment inverted>
         <Container>
