@@ -4,6 +4,7 @@ import {
   Header,
   Segment,
   Container,
+  Grid,
 } from 'semantic-ui-react';
 import axios from 'axios';
 import { setHeaders } from '../actions/headers';
@@ -28,10 +29,31 @@ class MixOff extends React.Component {
     const { mixoff } = this.state;
     return(
       <Segment inverted>
-        <Container>
-          <br />
-          <Header as='h1' inverted textAlign='center'>{mixoff.title}</Header>
-        </Container>
+        <Grid celled>
+          <Grid.Row>
+            <Grid.Column width={4}>
+              <br />
+              <Header as='h1' inverted textAlign='left'>{mixoff.title}</Header>
+              <p>
+                { mixoff.description }
+              </p>
+              <p>
+                {
+                  mixoff.recurring ?
+                    "Recurring"
+                  :
+                    "Non Recurring"
+                }
+              </p>
+              <p>
+                Track Limit: { mixoff.track_limit }
+              </p>
+              <br />
+            </Grid.Column>
+            <Grid.Column width={12}>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
       </Segment>
     )
   }
