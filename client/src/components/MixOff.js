@@ -1,12 +1,12 @@
 import React from 'react';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 import {
   Header,
   Segment,
   Container,
 } from 'semantic-ui-react';
 import axios from 'axios';
-import setHeaders from '../actions/headers';
+import { setHeaders } from '../actions/headers';
 
 class MixOff extends React.Component {
   state = { mixoff: {} }
@@ -17,12 +17,10 @@ class MixOff extends React.Component {
       .then( res => {
         dispatch(setHeaders(res.headers));
         this.setState({ mixoff: res.data });
-        debugger
       })
       .catch( err => {
         dispatch(setHeaders(err.headers));
         console.log(err);
-        debugger
       })
   }
 
@@ -39,5 +37,5 @@ class MixOff extends React.Component {
   }
 }
 
-export default MixOff;
+export default connect()(MixOff);
 
