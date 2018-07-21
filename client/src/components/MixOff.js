@@ -1,19 +1,33 @@
 import React from 'react';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 import {
   Header,
   Segment,
   Container,
 } from 'semantic-ui-react';
+import axios from 'axios';
+import setHeaders from '../actions/headers';
 
 class MixOff extends React.Component {
+  state = { mixoff: {} }
 
   componentDidMount() {
-    console.log(this.props.mixoff);
+    const { match, dispatch } = this.props
+    axios.get(`/api/mixoffs/${match.params.id}`)
+      .then( res => {
+        dispatch(setHeaders(res.headers));
+        this.setState({ mixoff: res.data });
+        debugger
+      })
+      .catch( err => {
+        dispatch(setHeaders(err.headers));
+        console.log(err);
+        debugger
+      })
   }
 
   render() {
-    const { mixoff } = this.props;
+    const { mixoff } = this.state;
     return(
       <Segment inverted>
         <Container>
@@ -25,9 +39,5 @@ class MixOff extends React.Component {
   }
 }
 
-const mapStateToProps = (state, props) => {
-  return { mixoff: state.mixoffs.find( m => m.id === props.match.params.id) }
-}
-
-export default connect(mapStateToProps)(MixOff);
+export default MixOff;
 
