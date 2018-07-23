@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     #   mixoffs
     post 'follows/mixoff', to: "follows#follow_mixoff"
     post 'follows/unfollow_mixoff', to: "follows#unfollow_mixoff"
+    get '/mixoff/members', to: "follows#index_members"
 
     # user routes
     get 'users', to: "users#index"

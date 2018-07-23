@@ -1,7 +1,7 @@
 class Api::FollowsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, only: [ :create, :destroy ]
-  before_action :set_mixoff, only: [ :follow_mixoff, :unfollow_mixoff ]
+  before_action :set_mixoff, only: [ :follow_mixoff, :unfollow_mixoff, :index_members ]
   respond_to :js
 
   def create
@@ -12,6 +12,11 @@ class Api::FollowsController < ApplicationController
     current_user.stop_following(@user)
   end
 
+  def index_friends
+    friends = User.find(current_user.follows.ids)
+    render json: friends
+  end
+
   def follow_mixoff
     current_user.follow(@mixoff)
   end
@@ -20,9 +25,10 @@ class Api::FollowsController < ApplicationController
     current_user.stop_following(@mixoff)
   end
 
-  def index_friends
-    friends = User.find(current_user.follows.ids)
-    render json: friends
+  #index members of a mixoff
+  def index_members
+    members = User.find(@mixoff.follows.ids)
+    render json: members
   end
 
   private

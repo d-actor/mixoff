@@ -10,14 +10,37 @@ import axios from 'axios';
 import { setHeaders } from '../actions/headers';
 
 class MixOff extends React.Component {
-  state = { mixoff: {} }
+  state = { mixoff: {}, members: [] }
 
   componentDidMount() {
-    const { match, dispatch } = this.props
+    const { match, dispatch } = this.props;
     axios.get(`/api/mixoffs/${match.params.id}`)
       .then( res => {
         dispatch(setHeaders(res.headers));
         this.setState({ mixoff: res.data });
+      })
+      .catch( err => {
+        dispatch(setHeaders(err.headers));
+        console.log(err);
+      })
+
+    axios.get('/api/mixoff/members', { mixoff_id: match.params.id })
+      .then( res => {
+        dispatch(setHeaders(res.headers));
+        this.setState({ members: res.data })
+      })
+      .catch( err => {
+        dispatch(setHeaders(err.headers));
+        console.log(err);
+      })
+  }
+
+  joinMixoff = (id) => {
+    const { dispatch } = this.props;
+    axios.post('/api/follows/mixoff', { mixoff_id: id })
+      .then( res => {
+        dispatch(setHeaders(res.headers));
+        // TODO add current_user to members state
       })
       .catch( err => {
         dispatch(setHeaders(err.headers));
