@@ -5,6 +5,7 @@ import {
   Segment,
   Container,
   Grid,
+  Button,
 } from 'semantic-ui-react';
 import axios from 'axios';
 import { setHeaders } from '../actions/headers';
@@ -49,7 +50,7 @@ class MixOff extends React.Component {
   }
 
   render() {
-    const { mixoff } = this.state;
+    const { mixoff, members } = this.state;
     return(
       <Segment inverted>
         <Grid celled>
@@ -72,8 +73,16 @@ class MixOff extends React.Component {
                 Track Limit: { mixoff.track_limit }
               </p>
               <br />
+              <Button secondary onClick={() => this.joinMixoff()}>Join</Button>
             </Grid.Column>
             <Grid.Column width={12}>
+              {
+                members.map( member => {
+                  return(
+                    <div>{member.name}</div>
+                  )
+                })
+              }
             </Grid.Column>
           </Grid.Row>
         </Grid>
