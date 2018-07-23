@@ -25,7 +25,7 @@ class MixOff extends React.Component {
         console.log(err);
       })
 
-    axios.get('/api/mixoff/members', { mixoff_id: match.params.id })
+    axios.get(`/api/mixoff/${match.params.id}/members`)
       .then( res => {
         dispatch(setHeaders(res.headers));
         this.setState({ members: res.data })
@@ -73,7 +73,7 @@ class MixOff extends React.Component {
                 Track Limit: { mixoff.track_limit }
               </p>
               <br />
-              <Button secondary onClick={() => this.joinMixoff()}>Join</Button>
+              <Button secondary onClick={() => this.joinMixoff(mixoff.id)}>Join</Button>
             </Grid.Column>
             <Grid.Column width={12}>
               {
