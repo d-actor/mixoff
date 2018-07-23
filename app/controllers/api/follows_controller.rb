@@ -27,8 +27,7 @@ class Api::FollowsController < ApplicationController
 
   #index members of a mixoff
   def index_members
-    members = @mixoff.followers
-    render json: members
+    render json: @mixoff.followers
   end
 
   private
