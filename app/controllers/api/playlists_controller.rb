@@ -35,6 +35,7 @@ class Api::PlaylistsController < ApplicationController
     end
 
     def playlist_params
+      params.require(:playlist).permit(:user_id, :mixoff_id, :name, :spotify_id)
     end
 end
 
