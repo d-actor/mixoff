@@ -11,7 +11,7 @@ import axios from 'axios';
 import { setHeaders } from '../actions/headers';
 
 class MixOff extends React.Component {
-  state = { mixoff: {}, members: [] }
+  state = { mixoff: {}, members: [], playlists: [] }
 
   componentDidMount() {
     const { match, dispatch } = this.props;

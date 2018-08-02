@@ -39,6 +39,5 @@ class Api::MixoffsController < ApplicationController
   def mixoff_params
     params.require(:mixoff).permit(:title, :description, :recurring, :track_limit)
   end
-
 end
 
