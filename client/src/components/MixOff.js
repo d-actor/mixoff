@@ -76,6 +76,7 @@ class MixOff extends React.Component {
               <Button secondary onClick={() => this.joinMixoff(mixoff.id)}>Join</Button>
             </Grid.Column>
             <Grid.Column width={12}>
+              <Header as='h3' inverted textAlign='left'>Members</Header>
               {
                 members.map( member => {
                   return(
