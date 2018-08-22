@@ -12,13 +12,24 @@ class Api::PlaylistsController < ApplicationController
   end
 
   def create
-
+    playlist = @mixoff.playlist.new(playlist_params)
+    if playlist.save
+      render json: playlist
+    else
+      render json: { errors: "Error creating playlist" }, status: 422
+    end
   end
 
   def update
+    if @playlist.update(playlist_params)
+      render json: @playlist
+    else
+      render json: { errors: "Error updating playlist" }, status: 422
+    end
   end
 
   def destroy
+    @playlist.destroy
   end
 
   private
