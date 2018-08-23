@@ -9,6 +9,7 @@ import {
 } from 'semantic-ui-react';
 import axios from 'axios';
 import { setHeaders } from '../actions/headers';
+import PlaylistForm from './PlaylistForm';
 
 class MixOff extends React.Component {
   state = { mixoff: {}, members: [], playlists: [] }
@@ -76,7 +77,7 @@ class MixOff extends React.Component {
               <Button secondary onClick={() => this.joinMixoff(mixoff.id)}>Join</Button>
             </Grid.Column>
             <Grid.Column width={12}>
-              <Header as='h3' inverted textAlign='left'>Members</Header>
+              <Header as='h3' inverted textAlign='left'>Members and Playlists</Header>
               {
                 members.map( member => {
                   return(
