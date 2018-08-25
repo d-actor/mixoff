@@ -13,12 +13,15 @@ import { addMixoff } from '../actions/mixoffs';
 class MixoffForm extends React.Component {
   state = { name: '', trackLimit: '', theme: '', recurring: true }
 
+  componentDidUnmount() {
+    this.setState({ name: '', trackLimit: '', theme: '', recurring: true })
+  }
+
   handleSubmit = (e) => {
     e.preventDefault();
     const { name, trackLimit, theme, recurring } = this.state;
-    const { dispatch } = this.props;
-    dispatch(addMixoff(name, theme, recurring, trackLimit));
-    this.setState({ name: '', trackLimit: '', theme: '', recurring: true })
+    const { dispatch, history } = this.props;
+    dispatch(addMixoff(name, theme, recurring, trackLimit, history));
   }
 
   handleChange = (e) => {

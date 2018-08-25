@@ -25,13 +25,13 @@ export const fetchMixoffs = () => {
   }
 }
 
-export const addMixoff = (name, theme, recurring, trackLimit) => {
+export const addMixoff = (name, theme, recurring, trackLimit, history) => {
   return dispatch => {
     axios.post('/api/mixoffs', { title: name, description: theme, recurring, track_limit: trackLimit })
       .then( res => {
         dispatch(setHeaders(res.headers));
         dispatch(sendMixoff(res.data));
-        //TODO push to Mixoff page for created mixoff
+        history.push(`/mixoff/${res.data.id}`)
       })
       .catch( err => {
         dispatch(setHeaders(err.headers));

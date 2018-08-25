@@ -53,7 +53,6 @@ class Users extends React.Component {
         this.setState({
           users: users.filter( u => u.id !== id )
         });
-        dispatch(setFlash("+", "green"));
         dispatch(setHeaders(res.headers));
       })
       .catch( err => {

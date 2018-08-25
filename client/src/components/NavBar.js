@@ -5,12 +5,16 @@ import { connect } from 'react-redux';
 import { handleLogout } from '../actions/auth';
 
 class NavBar extends React.Component {
+
   rightNavs = () => {
     const { user, dispatch, history } = this.props;
 
     if (user.id) {
       return (
         <Menu.Menu position='right'>
+          <Link to='/mixoffs'>
+            <Menu.Item style={{color: 'white'}} name='Mixoffs' />
+          </Link>
           <Link to='/playlists'>
             <Menu.Item style={{color: 'white'}} name='Playlists' />
           </Link>

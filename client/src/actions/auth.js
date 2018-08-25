@@ -19,7 +19,6 @@ export const registerUser = (email, name, spotifyName, password, passwordConfirm
         dispatch(setHeaders(headers));
         dispatch(login(user));
         history.push('/');
-        dispatch(setFlash("Registration Successful!"));
       })
       .catch(res => {
         const { headers } = res;
@@ -37,7 +36,6 @@ export const handleLogout = history => {
         const { headers } = res;
         dispatch(setHeaders(headers));
         dispatch(logout());
-        dispatch(setFlash('Logged out successfully!', 'green'));
         history.push('/login');
       })
       .catch(res => {
