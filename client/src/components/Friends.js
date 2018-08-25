@@ -1,10 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {
-  Header,
   Container,
   Card,
-  Segment,
   Button,
 } from 'semantic-ui-react';
 import axios from 'axios';

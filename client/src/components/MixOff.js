@@ -3,13 +3,12 @@ import { connect } from 'react-redux';
 import {
   Header,
   Segment,
-  Container,
   Grid,
   Button,
 } from 'semantic-ui-react';
 import axios from 'axios';
 import { setHeaders } from '../actions/headers';
-import PlaylistForm from './PlaylistForm';
+//import PlaylistForm from './PlaylistForm';
 
 class MixOff extends React.Component {
   state = { mixoff: {}, members: [], playlists: [] }

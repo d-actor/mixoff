@@ -8,7 +8,6 @@ import {
   Label,
 } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import axios from 'axios';
 import { addMixoff } from '../actions/mixoffs';
 
 class MixoffForm extends React.Component {
