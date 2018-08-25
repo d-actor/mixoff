@@ -41,7 +41,6 @@ class MixOff extends React.Component {
     axios.post('/api/follows/mixoff', { mixoff_id: id })
       .then( res => {
         dispatch(setHeaders(res.headers));
-        // TODO add current_user to members state
       })
       .catch( err => {
         dispatch(setHeaders(err.headers));
