@@ -8,7 +8,7 @@ import {
 } from 'semantic-ui-react';
 import axios from 'axios';
 import { setHeaders } from '../actions/headers';
-//import PlaylistForm from './PlaylistForm';
+import PlaylistForm from './PlaylistForm';
 
 class MixOff extends React.Component {
   state = { mixoff: {}, members: [], playlists: [] }
@@ -41,6 +41,7 @@ class MixOff extends React.Component {
     axios.post('/api/follows/mixoff', { mixoff_id: id })
       .then( res => {
         dispatch(setHeaders(res.headers));
+        // TODO figure out something that isn't this for state update on join...
         axios.get(`/api/mixoff/${this.props.match.params.id}/members`)
           .then( res => {
             dispatch(setHeaders(res.headers));
@@ -92,6 +93,7 @@ class MixOff extends React.Component {
                   )
                 })
               }
+              <PlaylistForm />
             </Grid.Column>
           </Grid.Row>
         </Grid>
