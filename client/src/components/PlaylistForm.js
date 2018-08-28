@@ -9,7 +9,10 @@ import {
 class PlaylistForm extends React.Component {
   state = { adding: false }
 
-  handleChange = () => {
+  handleChange = (e) => {
+    const id = e.target.id;
+    const value = e.target.value;
+    this.setState({ [id]: value });
   }
 
   toggle =  () => {
