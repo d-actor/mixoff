@@ -4,10 +4,15 @@ import {
   //Header,
   Input,
 } from 'semantic-ui-react';
-// import axios from 'axios';
+import { connect } from 'react-redux';
+import { fetchPlaylists } from '../actions/playlists';
 
 class PlaylistForm extends React.Component {
-  state = { adding: false }
+  state = { adding: false, playlists: [] }
+
+  componentDidMount() {
+    this.props.dispatch(fetchPlaylists());
+  }
 
   handleChange = (e) => {
     const id = e.target.id;
@@ -41,5 +46,11 @@ class PlaylistForm extends React.Component {
   }
 }
 
-export default PlaylistForm;
+const mapStateToProps = (state, props) => {
+  return {
+    playlists: state.playlists,
+  }
+}
+
+export default connect(mapStateToProps)(PlaylistForm);
 
