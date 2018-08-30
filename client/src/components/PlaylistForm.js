@@ -1,14 +1,15 @@
 import React from 'react';
 import {
   Button,
-  //Header,
-  Input,
+//  Input,
+  Dropdown,
+  Header,
 } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { fetchPlaylists } from '../actions/playlists';
 
 class PlaylistForm extends React.Component {
-  state = { adding: false, playlists: [] }
+  state = { adding: false, playlists: [], selected: {} }
 
   componentDidMount() {
     this.props.dispatch(fetchPlaylists());
@@ -24,12 +25,31 @@ class PlaylistForm extends React.Component {
     this.setState({ adding: !this.state.adding });
   }
 
+  playlistOptions = () => {
+    return this.props.playlists.map( playlist => {
+      const { name: text } = playlist;
+      return { text }
+    });
+  }
+
+  selectPlaylist = (playlist) => {
+    this.setState({ selected: playlist });
+  }
+
   render() {
     const { adding } = this.state;
     if(adding)
       return(
         <div>
-          <Input type='text' defaultValue='Test' onChange={this.handleChange} />
+          <Header inverted>Playlist</Header>
+          <Dropdown
+            placeholder='Select a Playlist'
+            fluid
+            selection
+            search
+            options={this.playlistOptions()}
+            onChange={this.handleChange}
+          />
           <Button onClick={this.toggle}>
             Cancel
           </Button>
