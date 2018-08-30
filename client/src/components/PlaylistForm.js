@@ -16,8 +16,7 @@ class PlaylistForm extends React.Component {
   }
 
   handleChange = (e) => {
-    const id = e.target.id;
-    const value = e.target.value;
+    const { id, value } = e.target;
     this.setState({ [id]: value });
   }
 
