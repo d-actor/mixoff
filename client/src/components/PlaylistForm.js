@@ -31,8 +31,9 @@ class PlaylistForm extends React.Component {
     });
   }
 
-  selectPlaylist = (playlist) => {
-    this.setState({ selected: playlist });
+  selectPlaylist = (e, {value}) => {
+    e.persist();
+    console.log(e.target.textContent);
   }
 
   render() {
@@ -45,9 +46,8 @@ class PlaylistForm extends React.Component {
             placeholder='Select a Playlist'
             fluid
             selection
-            search
             options={this.playlistOptions()}
-            onChange={this.handleChange}
+            onChange={this.selectPlaylist}
           />
           <Button onClick={this.toggle}>
             Cancel
