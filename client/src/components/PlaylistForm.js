@@ -31,9 +31,8 @@ class PlaylistForm extends React.Component {
     });
   }
 
-  selectPlaylist = (e, {value}) => {
-    e.persist();
-    console.log(e.target.textContent);
+  selectPlaylist = (playlist) => {
+    this.setState({ selected: playlist });
   }
 
   render() {
