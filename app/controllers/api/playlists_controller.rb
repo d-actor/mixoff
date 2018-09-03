@@ -12,6 +12,7 @@ class Api::PlaylistsController < ApplicationController
   end
 
   def create
+    binding.pry
     playlist = @mixoff.playlist.new(playlist_params)
     if playlist.save
       render json: playlist

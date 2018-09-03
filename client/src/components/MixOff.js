@@ -93,7 +93,7 @@ class MixOff extends React.Component {
                   )
                 })
               }
-              <PlaylistForm />
+              <PlaylistForm mixoffId={this.props.match.params.id} />
             </Grid.Column>
           </Grid.Row>
         </Grid>

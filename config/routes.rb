@@ -7,14 +7,16 @@ Rails.application.routes.draw do
     get 'spotify/tracks/:id', to: "spotify#playlist_tracks"
 
     # follow routes
-    #   users
+    # users
     post 'follows/create', to: "follows#create"
     post 'follows/destroy', to: "follows#destroy"
     get '/friends', to: "follows#index_friends"
-    #   mixoffs
+    # mixoffs
     post 'follows/mixoff', to: "follows#follow_mixoff"
     post 'follows/unfollow_mixoff', to: "follows#unfollow_mixoff"
     get '/mixoff/:mixoff_id/members', to: "follows#index_members"
+    # playlists
+    post '/playlist/:mixoff_id/create', to: "playlists#create"
 
     # user routes
     get 'users', to: "users#index"

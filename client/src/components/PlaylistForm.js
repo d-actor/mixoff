@@ -6,10 +6,10 @@ import {
   Header,
 } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import { fetchPlaylists } from '../actions/playlists';
+import { fetchPlaylists, addPlaylist } from '../actions/playlists';
 
 class PlaylistForm extends React.Component {
-  state = { adding: false, playlists: [], selected: '' }
+  state = { adding: false, playlists: [], selected: '', playlistId: '', externalUrl: '' }
 
   componentDidMount() {
     this.props.dispatch(fetchPlaylists());
@@ -18,6 +18,14 @@ class PlaylistForm extends React.Component {
   handleChange = (e) => {
     const { id, value } = e.target;
     this.setState({ [id]: value });
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const { selected, playlistId, externalUrl } = this.state;
+    const { dispatch, history mixoffId } = this.props;
+
+    dispatch(addPlaylist(selected, playlistId, externalUrl, history, mixoffId));
   }
 
   toggle =  () => {
@@ -33,6 +41,7 @@ class PlaylistForm extends React.Component {
 
   selectPlaylist = (selected) => {
     this.setState({ selected: selected.target.innerText });
+    this.handleSubmit();
     this.toggle();
   }
 

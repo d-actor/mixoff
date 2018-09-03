@@ -37,3 +37,16 @@ export const fetchTracks = (id) => {
   }
 }
 
+export const addPlaylist = (name, playlistId, url, history, id) => {
+  return dispatch => {
+    axios.post(`/api/playlist/${id}/create`)
+      .then( res => {
+        dispatch(setHeaders(res.headers))
+      })
+      .catch( err => {
+        console.log(err)
+        dispatch(setHeaders(err.headers));
+      });
+  }
+}
+
