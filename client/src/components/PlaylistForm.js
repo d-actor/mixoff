@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 import { fetchPlaylists } from '../actions/playlists';
 
 class PlaylistForm extends React.Component {
-  state = { adding: false, playlists: [], selected: {} }
+  state = { adding: false, playlists: [], selected: '' }
 
   componentDidMount() {
     this.props.dispatch(fetchPlaylists());
@@ -31,12 +31,13 @@ class PlaylistForm extends React.Component {
     });
   }
 
-  selectPlaylist = (playlist) => {
-    this.setState({ selected: playlist });
+  selectPlaylist = (selected) => {
+    this.setState({ selected: selected.target.innerText });
+    this.toggle();
   }
 
   render() {
-    const { adding } = this.state;
+    const { adding, selected } = this.state;
     if(adding)
       return(
         <div>
@@ -45,22 +46,32 @@ class PlaylistForm extends React.Component {
             placeholder='Select a Playlist'
             fluid
             selection
+            search
             options={this.playlistOptions()}
-            onChange={this.selectPlaylist}
+            value={selected}
+            onChange={(e) => this.selectPlaylist(e) }
           />
           <Button onClick={this.toggle}>
             Cancel
           </Button>
         </div>
-      );
-    else
+        );
+    else if (selected === '')
       return(
         <div>
           <Button inverted onClick={() => this.toggle()}>
             Add A Mix
           </Button>
         </div>
-      );
+        );
+    else
+      return(
+        <div>
+          <Button inverted onClick={() => this.toggle()}>
+            { selected }
+          </Button>
+        </div>
+    )
   }
 }
 
