@@ -23,7 +23,7 @@ class PlaylistForm extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const { selected, playlistId, externalUrl } = this.state;
-    const { dispatch, history mixoffId } = this.props;
+    const { dispatch, history, mixoffId } = this.props;
 
     dispatch(addPlaylist(selected, playlistId, externalUrl, history, mixoffId));
   }
@@ -41,7 +41,7 @@ class PlaylistForm extends React.Component {
 
   selectPlaylist = (selected) => {
     this.setState({ selected: selected.target.innerText });
-    this.handleSubmit();
+    this.handleSubmit(selected);
     this.toggle();
   }
 
@@ -55,7 +55,6 @@ class PlaylistForm extends React.Component {
             placeholder='Select a Playlist'
             fluid
             selection
-            search
             options={this.playlistOptions()}
             value={selected}
             onChange={(e) => this.selectPlaylist(e) }
@@ -78,6 +77,9 @@ class PlaylistForm extends React.Component {
         <div>
           <Button inverted onClick={() => this.toggle()}>
             { selected }
+          </Button>
+          <Button inverted onClick={(e) => this.handleSubmit(e)}>
+            Add to Mixoff
           </Button>
         </div>
     )
