@@ -40,11 +40,12 @@ ActiveRecord::Schema.define(version: 20180906221039) do
 
   create_table "playlists", force: :cascade do |t|
     t.string "name"
-    t.integer "spotify_id"
+    t.string "spotify_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "url"
     t.integer "mixoff_id"
+    t.integer "user_id"
   end
 
   create_table "songs", force: :cascade do |t|
