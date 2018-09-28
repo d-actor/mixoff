@@ -12,7 +12,7 @@ class Api::PlaylistsController < ApplicationController
   end
 
   def new
-    playlist = @user.playlists.bew(playlist_params)
+    playlist = @user.playlists.new(playlist_params)
   end
 
   def create
