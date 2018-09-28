@@ -9,6 +9,10 @@ const setTracks = (tracks) => {
   return { type: 'SET_TRACKS', tracks: tracks }
 }
 
+const setPlaylist = (playlist) => {
+  return { type: 'ADD_PLAYLIST', playlist: playlist }
+}
+
 export const fetchPlaylists = () => {
   return dispatch => {
     axios.get('/api/spotify/playlists')
@@ -38,10 +42,10 @@ export const fetchTracks = (id) => {
 }
 
 export const addPlaylist = (name, playlistId, url, id) => {
-  debugger
   return dispatch => {
     axios.post(`/api/playlist/${id}/create`, { name, spotify_id: playlistId, url, mixoff_id: id })
       .then( res => {
+        dispatch(setPlaylist(res.data))
         dispatch(setHeaders(res.headers))
       })
       .catch( err => {

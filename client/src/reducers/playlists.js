@@ -4,6 +4,8 @@ const playlists = (state = [], action) => {
       return action.playlists
     case 'SET_TRACKS':
       return action.tracks
+    case 'ADD_PLAYLIST':
+      return action.playlist
     default:
       return state;
   }
