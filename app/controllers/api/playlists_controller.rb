@@ -11,8 +11,15 @@ class Api::PlaylistsController < ApplicationController
     render json: @playlist
   end
 
+  #need to create for user, then add mixoff foreign key
   def new
     playlist = @user.playlists.new(playlist_params)
+    if playlist.save
+      render json: playlist
+      create
+    else
+      render json: { errors: "Error creating creating playlist" }, status: 422
+    end
   end
 
   def create
