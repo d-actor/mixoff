@@ -11,9 +11,13 @@ class Api::PlaylistsController < ApplicationController
     render json: @playlist
   end
 
+  def new
+    playlist = @user.playlists.bew(playlist_params)
+  end
+
   def create
+    playlist = @mixoff.playlists.new(playlist_params)
     binding.pry
-    playlist = @mixoff.playlist.new(playlist_params)
     if playlist.save
       render json: playlist
     else
@@ -51,7 +55,7 @@ class Api::PlaylistsController < ApplicationController
     end
 
     def playlist_params
-      params.require(:playlist).permit(:user_id, :mixoff_id, :name, :spotify_id, :url)
+      params.require(:playlist).permit(:name, :spotify_id, :url)
     end
 end
 

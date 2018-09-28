@@ -37,7 +37,8 @@ export const fetchTracks = (id) => {
   }
 }
 
-export const addPlaylist = (name, playlistId, url, history, id) => {
+export const addPlaylist = (name, playlistId, url, id) => {
+  debugger
   return dispatch => {
     axios.post(`/api/playlist/${id}/create`, { name, spotify_id: playlistId, url, mixoff_id: id })
       .then( res => {

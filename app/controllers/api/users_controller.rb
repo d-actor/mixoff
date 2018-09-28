@@ -10,3 +10,4 @@ class Api::UsersController < ApplicationController
     #todo
   end
 end
+
