@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 import { fetchPlaylists, addPlaylist } from '../actions/playlists';
 
 class PlaylistForm extends React.Component {
-  state = { adding: false, playlists: [], selected: '', playlistId: '', externalUrl: '' }
+  state = { adding: false, selected: '', playlistId: '', externalUrl: '' }
 
   componentDidMount() {
     this.props.dispatch(fetchPlaylists());

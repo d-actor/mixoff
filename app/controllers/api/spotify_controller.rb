@@ -27,3 +27,4 @@ class Api::SpotifyController < ApplicationController
    #   @playlist = RSpotify.find(@user, params[:id])
    # end
 end
+
