@@ -41,9 +41,9 @@ export const fetchTracks = (id) => {
   }
 }
 
-export const addPlaylist = (name, playlistId, url, id) => {
+export const addPlaylist = (name, playlistId, url, mixoffId) => {
   return dispatch => {
-    axios.post(`/api/playlist/${id}/create`, { name, spotify_id: playlistId, url, mixoff_id: id })
+    axios.post(`/api/playlist/${mixoffId}/create`, { name, spotify_id: playlistId, url, mixoff_id: mixoffId })
       .then( res => {
         dispatch(setPlaylist(res.data))
         dispatch(setHeaders(res.headers))

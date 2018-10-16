@@ -1,6 +1,5 @@
 class Api::PlaylistsController < ApplicationController
   before_action :set_user
-  before_action :set_mixoff, only: [ :create ]
   before_action :set_playlist, except: [ :index, :create ]
 
   def index
@@ -23,8 +22,7 @@ class Api::PlaylistsController < ApplicationController
   end
 
   def create
-    playlist = @mixoff.playlists.new(playlist_params)
-    binding.pry
+    playlist = @user.playlists.new(playlist_params)
     if playlist.save
       render json: playlist
     else
@@ -62,7 +60,7 @@ class Api::PlaylistsController < ApplicationController
     end
 
     def playlist_params
-      params.require(:playlist).permit(:name, :spotify_id, :url)
+      params.require(:playlist).permit(:name, :spotify_id, :url, :mixoff_id)
     end
 end
 

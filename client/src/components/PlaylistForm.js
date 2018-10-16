@@ -22,9 +22,9 @@ class PlaylistForm extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const { selected, playlistId, externalUrl } = this.state;
-    const { dispatch, history, mixoffId } = this.props;
-
-    dispatch(addPlaylist(selected, playlistId, externalUrl, history, mixoffId));
+    const { dispatch, mixoffId} = this.props;
+    const realId = parseInt(mixoffId, 10)
+    dispatch(addPlaylist(selected, playlistId, externalUrl, realId));
   }
 
   toggle =  () => {
