@@ -8,5 +8,6 @@ class User < ActiveRecord::Base
           :omniauthable
   include DeviseTokenAuth::Concerns::User
   has_many :playlists
+  has_many :mixoffs, through: :playlists
 end
 
