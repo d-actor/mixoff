@@ -1,5 +1,4 @@
 class Playlist < ApplicationRecord
-  belongs_to :user
-  belongs_to :mixoff, optional: true
+  belongs_to :playlistable, polymorphic: true
 end
 

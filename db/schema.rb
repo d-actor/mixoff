@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180906221039) do
+ActiveRecord::Schema.define(version: 20190330231507) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,14 @@ ActiveRecord::Schema.define(version: 20180906221039) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "track_limit"
+  end
+
+  create_table "playlistables", force: :cascade do |t|
+    t.integer "playlistable_id"
+    t.integer "playlist_id"
+    t.integer "owner_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "playlists", force: :cascade do |t|

@@ -1,0 +1,2 @@
+class Playlistable < ApplicationRecord
+end
