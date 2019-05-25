@@ -39,9 +39,9 @@ ActiveRecord::Schema.define(version: 20190330231507) do
   end
 
   create_table "playlistables", force: :cascade do |t|
-    t.integer "playlistable_id"
     t.integer "playlist_id"
-    t.integer "owner_id"
+    t.integer "playlistable_id"
+    t.string "playlistable_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
