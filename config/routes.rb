@@ -16,13 +16,16 @@ Rails.application.routes.draw do
     post 'follows/unfollow_mixoff', to: "follows#unfollow_mixoff"
     get '/mixoff/:mixoff_id/members', to: "follows#index_members"
     # playlists
-    post '/playlist/:mixoff_id/create', to: "playlists#create"
+    post '/playlists/:mixoff_id/create', to: "playlists#create"
+    #playlistable routes
+    get '/playlists/:playlist_id/all/:id', to: "playlistables#index"
 
     # user routes
     get 'users', to: "users#index"
 
     # mixoff routes
     resources :mixoffs
+
 
   end
 
